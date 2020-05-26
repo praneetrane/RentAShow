@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-using Vidly.Models;
+using RentAShow.Models;
 
-namespace Vidly.Controllers
+namespace RentAShow.Controllers
 {
     [Authorize]
     public class AccountController : Controller

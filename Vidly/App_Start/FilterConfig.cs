@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Vidly
+namespace RentAShow
 {
     public class FilterConfig
     {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly", "Vidly\Vidly.csproj", "{CB87D768-5DB5-4596-86C2-30A0F55567AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentAShow", "Vidly\RentAShow.csproj", "{CB87D768-5DB5-4596-86C2-30A0F55567AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

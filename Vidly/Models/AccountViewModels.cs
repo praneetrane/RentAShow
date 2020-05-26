@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Vidly.Models
+namespace RentAShow.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

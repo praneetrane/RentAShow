@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Vidly.Models;
+using RentAShow.Models;
 
-namespace Vidly.Controllers
+namespace RentAShow.Controllers
 {
     public class CustomersController : Controller
     {
