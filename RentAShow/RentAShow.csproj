@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -173,6 +175,22 @@
     <Compile Include="Migrations\202005280215539_AddIsSubscribedToCustomer.Designer.cs">
       <DependentUpon>202005280215539_AddIsSubscribedToCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006010539260_InitialModel1.cs" />
+    <Compile Include="Migrations\202006010539260_InitialModel1.Designer.cs">
+      <DependentUpon>202006010539260_InitialModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006010557006_AddMembershipType.cs" />
+    <Compile Include="Migrations\202006010557006_AddMembershipType.Designer.cs">
+      <DependentUpon>202006010557006_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006010614305_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202006010614305_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>202006010614305_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006010651349_ApplyAnnotationsToCustomerName.cs" />
+    <Compile Include="Migrations\202006010651349_ApplyAnnotationsToCustomerName.Designer.cs">
+      <DependentUpon>202006010651349_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -256,6 +274,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005280215539_AddIsSubscribedToCustomer.resx">
       <DependentUpon>202005280215539_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006010539260_InitialModel1.resx">
+      <DependentUpon>202006010539260_InitialModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006010557006_AddMembershipType.resx">
+      <DependentUpon>202006010557006_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006010614305_PopulateMembershipTypes.resx">
+      <DependentUpon>202006010614305_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006010651349_ApplyAnnotationsToCustomerName.resx">
+      <DependentUpon>202006010651349_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

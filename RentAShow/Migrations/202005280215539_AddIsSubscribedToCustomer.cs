@@ -9,7 +9,7 @@ namespace RentAShow.Migrations
         {
             AddColumn("dbo.Customers", "IsSubscribedToNewsletter", c => c.Boolean(nullable: false));
         }
-        
+
         public override void Down()
         {
             DropColumn("dbo.Customers", "IsSubscribedToNewsletter");
