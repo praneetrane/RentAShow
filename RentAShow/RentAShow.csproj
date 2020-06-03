@@ -191,6 +191,30 @@
     <Compile Include="Migrations\202006010651349_ApplyAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>202006010651349_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006020221103_AddedMemberShipTypeNameToMembershipType.cs" />
+    <Compile Include="Migrations\202006020221103_AddedMemberShipTypeNameToMembershipType.Designer.cs">
+      <DependentUpon>202006020221103_AddedMemberShipTypeNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006020237269_RenamedAndAddedAnnotationsToMembershipTypeName.cs" />
+    <Compile Include="Migrations\202006020237269_RenamedAndAddedAnnotationsToMembershipTypeName.Designer.cs">
+      <DependentUpon>202006020237269_RenamedAndAddedAnnotationsToMembershipTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006020239334_UpdateMemberShipTypeNames.cs" />
+    <Compile Include="Migrations\202006020239334_UpdateMemberShipTypeNames.Designer.cs">
+      <DependentUpon>202006020239334_UpdateMemberShipTypeNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006020947551_RenamedAndAddedAnnotationsToMembershipTypeName1.cs" />
+    <Compile Include="Migrations\202006020947551_RenamedAndAddedAnnotationsToMembershipTypeName1.Designer.cs">
+      <DependentUpon>202006020947551_RenamedAndAddedAnnotationsToMembershipTypeName1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006021251260_AddBirthDateToCustomer.cs" />
+    <Compile Include="Migrations\202006021251260_AddBirthDateToCustomer.Designer.cs">
+      <DependentUpon>202006021251260_AddBirthDateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006021315586_BirthDateNullableInCustomer.cs" />
+    <Compile Include="Migrations\202006021315586_BirthDateNullableInCustomer.Designer.cs">
+      <DependentUpon>202006021315586_BirthDateNullableInCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -286,6 +310,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006010651349_ApplyAnnotationsToCustomerName.resx">
       <DependentUpon>202006010651349_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006020221103_AddedMemberShipTypeNameToMembershipType.resx">
+      <DependentUpon>202006020221103_AddedMemberShipTypeNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006020237269_RenamedAndAddedAnnotationsToMembershipTypeName.resx">
+      <DependentUpon>202006020237269_RenamedAndAddedAnnotationsToMembershipTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006020239334_UpdateMemberShipTypeNames.resx">
+      <DependentUpon>202006020239334_UpdateMemberShipTypeNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006020947551_RenamedAndAddedAnnotationsToMembershipTypeName1.resx">
+      <DependentUpon>202006020947551_RenamedAndAddedAnnotationsToMembershipTypeName1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006021251260_AddBirthDateToCustomer.resx">
+      <DependentUpon>202006021251260_AddBirthDateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006021315586_BirthDateNullableInCustomer.resx">
+      <DependentUpon>202006021315586_BirthDateNullableInCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

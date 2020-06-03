@@ -4,6 +4,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Customer Details</h2>
 <h2>@Model.Name</h2>
+<ul>
+    <li>
+        <strong>Membership Type: </strong> @Model.MemberShipType.Name
+    </li>
+    @if (@Model.BirthDate.HasValue && Model.BirthDate.Value.Year>1900)
+    {
+        <li>
+            <strong>Birthdate:</strong> @Model.BirthDate.Value.ToShortDateString()
+        </li>
+    }
+
+</ul>
 

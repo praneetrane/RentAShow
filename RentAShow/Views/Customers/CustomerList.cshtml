@@ -18,15 +18,17 @@
             <thead>
                 <tr>
                     <th>Customer</th>
-                    <th>Discount Rate</th>
+                    <th>Membership Type</th>
                 </tr>
             </thead>
             @foreach (var customer in Model)
             {
-                <tr>
-                    <td>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)</td>
-                    <td>@customer.MemberShipType.DiscountRate%</td>
-                </tr>
+        <tr>
+            <td>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)</td>
+            @*--Start Section 3 | Exercise 1- Add membership type to list of customers.*@
+            <td>@customer.MemberShipType.Name</td>
+            @*--End*@
+        </tr>
             }
         </table>
     }

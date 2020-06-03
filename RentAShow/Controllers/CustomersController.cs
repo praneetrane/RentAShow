@@ -38,7 +38,7 @@ namespace RentAShow.Controllers
 
         public ActionResult Details(int id)
         {
-            Customer customer = _context.Customers.SingleOrDefault(x => x.Id == id);
+            Customer customer = _context.Customers.Include(c=>c.MemberShipType).SingleOrDefault(x => x.Id == id);
 
             if (customer == null)
             {

@@ -4,6 +4,8 @@
 # User-specific files
 *.suo
 *.user
+*.ldf
+*.mdf
 *.sln.docstates
 
 # Build results
@@ -154,3 +156,6 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+/RentAShow/App_Data/aspnet-RentAShow-20200523045828.mdf
+/RentAShow/App_Data/aspnet-RentAShow-20200523045828_log.ldf
+/RentAShow/App_Data

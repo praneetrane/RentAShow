@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using RentAShow.Models;
 using RentAShow.ViewModels;
 
@@ -10,7 +11,17 @@ namespace RentAShow.Controllers
 {
     public class MoviesController : Controller
     {
-        //
+        private ApplicationDbContext _Context;
+
+        public MoviesController()
+        {
+            _Context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _Context.Dispose();
+        }
         // GET: /Movies/
         public ActionResult Index()
         {
