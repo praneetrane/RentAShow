@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using RentAShow.Models;
 using RentAShow.ViewModels;
+using System.Data.Entity;
 
 namespace RentAShow.Controllers
 {
@@ -57,14 +58,14 @@ namespace RentAShow.Controllers
         public ViewResult MovieList()
         {
 
-            var movieList = GetAllMovies();
+            var movieList = _Context.Movies.Include(m => m.Genre).ToList();
 
             return View(movieList);
         }
 
         public ViewResult Details(int id)
         {
-            var movie = GetAllMovies().Where(x => x.ID == id).FirstOrDefault();
+            var movie = _Context.Movies.Include(m => m.Genre).SingleOrDefault(x => x.ID == id);
 
             return View(movie);
         }
