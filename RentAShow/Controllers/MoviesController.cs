@@ -7,6 +7,7 @@ using System.Web.Routing;
 using RentAShow.Models;
 using RentAShow.ViewModels;
 using System.Data.Entity;
+using System.Data;
 
 namespace RentAShow.Controllers
 {
@@ -46,7 +47,7 @@ namespace RentAShow.Controllers
 
             return View(viewModel);
         }
-     
+
 
         [Route("Movies/ByReleasedDate/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1, 12)}")]
 
@@ -70,21 +71,51 @@ namespace RentAShow.Controllers
             return View(movie);
         }
 
-        private IEnumerable<Movie> GetAllMovies()
+        public ViewResult New(Movie movie)
         {
-            try
+            var genres = _Context.Genres.ToList();
+
+            var viewModel = new MovieFormViewModel()
             {
-                return new List<Movie>{
-                    new Movie{ID=1,Name="Shrek!"},
-                    new Movie{ID=2,Name="Wall E"}
-                };
-            }
-            catch (Exception ex)
-            {
-                
-                throw new Exception("Error while getting all movies: " +ex.Message);
-            }
+                Genres = genres
+            };
+            return View("MovieForm", viewModel);
         }
 
+        public ViewResult Edit(int id)
+        {
+            Movie movie = _Context.Movies.Single(m => m.ID == id);
+
+            var viewModel = new MovieFormViewModel() {
+                Movie = movie,
+                Genres = _Context.Genres.ToList()
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.ID == 0)
+            {
+                movie.DateAdded = DateTime.Now;
+                _Context.Movies.Add(movie);
+            }         
+            else
+            {
+                var movieInDB = _Context.Movies.Single(m => m.ID == movie.ID);
+
+                if (movieInDB != null)
+                {
+                    movieInDB.Name = movie.Name;
+                    movieInDB.ReleaseDate = movie.ReleaseDate;
+                    movieInDB.GenreId = movie.GenreId;
+                    movieInDB.NumberInStock = movie.NumberInStock;
+                }
+            }
+            _Context.SaveChanges();
+            return RedirectToAction("MovieList", "Movies");
+        }
     }
 }
