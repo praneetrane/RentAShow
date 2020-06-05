@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using RentAShow.Models;
 using System.Data.Entity;
+using RentAShow.ViewModels;
 
 namespace RentAShow.Controllers
 {
@@ -20,10 +21,37 @@ namespace RentAShow.Controllers
             _context.Dispose();
         }
 
-        List<Customer> customers = new List<Customer>
-            {
+        public ActionResult New()
+        {
+            var memberShipTypes = _context.MemberShipTypes.ToList();
 
+            var viewModel = new CustomerFormViewModel()
+            {
+                MemberShipTypes = memberShipTypes
             };
+            return View("CustomerForm",viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            if (customer.Id==0)
+            _context.Customers.Add(customer);
+            else
+            {
+                var customerInDB = _context.Customers.Single(c => c.Id == customer.Id);
+
+                customerInDB.Name = customer.Name;
+                customerInDB.BirthDate = customer.BirthDate;
+                customerInDB.MembershipTypeId = customer.MembershipTypeId;
+                customerInDB.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+
+            }
+            _context.SaveChanges();
+
+            return RedirectToAction("CustomerList", "Customers");
+        }
+
         // GET: /Customers/
         [Route("Customers/CustomerList")]
         public ActionResult CustomerList()
@@ -32,13 +60,13 @@ namespace RentAShow.Controllers
             //var customerList = GetAllCustomers();
             // var customerList = _context.Customers;
 
-            var customerList = _context.Customers.Include(c=>c.MemberShipType).ToList();
+            var customerList = _context.Customers.Include(c => c.MemberShipType).ToList();
             return View(customerList);
         }
 
         public ActionResult Details(int id)
         {
-            Customer customer = _context.Customers.Include(c=>c.MemberShipType).SingleOrDefault(x => x.Id == id);
+            Customer customer = _context.Customers.Include(c => c.MemberShipType).SingleOrDefault(x => x.Id == id);
 
             if (customer == null)
             {
@@ -46,5 +74,19 @@ namespace RentAShow.Controllers
             }
             return View(customer);
         }
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            if (customer == null)
+                return HttpNotFound();
+            var viewModel = new CustomerFormViewModel()
+            {
+                Customer = customer,
+                MemberShipTypes = _context.MemberShipTypes.ToList()
+            };
+            return View("CustomerForm",viewModel);
+        }
+            
     }
 }
