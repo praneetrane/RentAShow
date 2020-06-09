@@ -27,14 +27,26 @@ namespace RentAShow.Controllers
 
             var viewModel = new CustomerFormViewModel()
             {
+                Customer= new Customer(),
                 MemberShipTypes = memberShipTypes
             };
             return View("CustomerForm",viewModel);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel()
+                {
+                    Customer = customer,
+                    MemberShipTypes = _context.MemberShipTypes.ToList()
+                };
+
+                return View("CustomerForm", viewModel);
+            }
             if (customer.Id==0)
             _context.Customers.Add(customer);
             else
