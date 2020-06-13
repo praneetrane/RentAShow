@@ -33,7 +33,7 @@ namespace RentAShow.ViewModels
         {
             get
             {
-                return ID != null ? "Edit Movie" : "New Movie";
+                return ID != 0 ? "Edit Movie" : "New Movie";
             }
         }
 

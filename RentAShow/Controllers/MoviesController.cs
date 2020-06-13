@@ -86,9 +86,8 @@ namespace RentAShow.Controllers
         {
             Movie movie = _Context.Movies.Single(m => m.ID == id);
 
-            var viewModel = new MovieFormViewModel()
+            var viewModel = new MovieFormViewModel(movie)
             {
-
                 Genres = _Context.Genres.ToList()
             };
 
