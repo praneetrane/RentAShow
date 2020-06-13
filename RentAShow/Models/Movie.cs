@@ -9,6 +9,7 @@ namespace RentAShow.Models
     public class Movie
     {
         public int ID { get; set; }
+        //[Required]
         public string  Name { get; set; }
 
         public Genre Genre { get; set; }
@@ -24,6 +25,7 @@ namespace RentAShow.Models
 
         [Display(Name = "Number in Stock")]
         [Range(1, 20)]
+        [Required(ErrorMessage ="The field numberInStock must be between 1 and 20")]
         public byte NumberInStock { get; set; }
 
     }

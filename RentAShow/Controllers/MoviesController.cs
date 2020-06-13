@@ -86,8 +86,9 @@ namespace RentAShow.Controllers
         {
             Movie movie = _Context.Movies.Single(m => m.ID == id);
 
-            var viewModel = new MovieFormViewModel() {
-                Movie = movie,
+            var viewModel = new MovieFormViewModel()
+            {
+
                 Genres = _Context.Genres.ToList()
             };
 
@@ -95,13 +96,25 @@ namespace RentAShow.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewmodel = new MovieFormViewModel(movie)
+                {
+                    //Removed Movie object set line from here and passing movie object recieved from the parameter to the 
+                    //MovieFormViewModel() constructor.
+                    Genres = _Context.Genres.ToList()
+                };
+
+                return View("MovieForm", viewmodel);
+            }
             if (movie.ID == 0)
             {
                 movie.DateAdded = DateTime.Now;
                 _Context.Movies.Add(movie);
-            }         
+            }
             else
             {
                 var movieInDB = _Context.Movies.Single(m => m.ID == movie.ID);
